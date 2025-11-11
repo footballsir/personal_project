@@ -1,26 +1,272 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Colors from Figma */
+  --color-primary-blue: #33607D;
+  --color-primary-brown: #33302E;
+  --color-cream: #FEE0C3;
+  --color-bg-gradient-start: #E6EFF5;
+  --color-bg-gradient-end: #FCF5F0;
+  --color-accent-yellow: #C3BA7A;
+  --color-card-purple: #7F63A6;
+  --color-card-brown: #4C4642;
+  --color-card-dark-brown: #59422F;
+  --color-card-beige: #EBE7E2;
+  --color-card-tan: #A88C76;
+  --color-text-dark: #4B2414;
+  --color-button-text: #E2DACA;
+  
+  /* Background */
+  --bg-primary: #F8F4F2;
+  
+  /* Shadows */
+  --shadow-sm: 0px 1px 1px 0px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0px 0px 1px 0px rgba(0, 0, 0, 0.08), 0px 2px 4px 0px rgba(0, 0, 0, 0.03), 0px 4px 6px 0px rgba(0, 0, 0, 0.08);
+  --shadow-button: 0px 0.5px 3px 0px rgba(0, 0, 0, 0.2);
+  
+  /* Border */
+  --border-default: 0.5px solid rgba(0, 0, 0, 0.12);
+  
+  /* Spacing */
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+  --spacing-2xl: 60px;
+  
+  /* Border Radius */
+  --radius-sm: 10px;
+  --radius-md: 12px;
+  --radius-lg: 48px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ABC Ginto Regular */
+@font-face {
+  font-family: 'Ginto Copilot';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/ABCGinto-Regular-Trial.woff2') format('woff2');
+  font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@font-face {
+  font-family: 'Ginto Copilot';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/ABCGinto-Medium-Trial.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ginto Copilot';
+  font-style: normal;
+  font-weight: 480;
+  src: url('/fonts/ABCGinto-Medium-Trial.woff2') format('woff2');
+  font-display: swap;
+}
+
+/* ABC Ginto Nord */
+@font-face {
+  font-family: 'Ginto Copilot Nord';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/ABCGintoNord-Regular-Trial.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ginto Copilot Nord';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/ABCGintoNord-Bold-Trial.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ginto Copilot Nord';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/ABCGintoNord-Bold-Trial.woff2') format('woff2');
+  font-display: swap;
+}
+
+@layer base {
+  html, body {
+    @apply text-[#33302E] antialiased;
+    font-family: 'Ginto Copilot', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  *, *::before, *::after {
+    font-family: inherit;
+  }
+
+  button, input, textarea, select {
+    font: inherit;
+  }
+  
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  /* Typography Utilities */
+  .text-hero {
+    font-family: 'Ginto Copilot Nord', sans-serif;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: auto;
+    letter-spacing: -0.02em;
+    color: var(--color-primary-blue);
+  }
+  
+  .text-hero-subtitle {
+    font-family: 'Ginto Copilot Nord', sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: auto;
+    letter-spacing: -0.02em;
+    color: var(--color-primary-blue);
+  }
+  
+  .text-hero-description {
+    font-family: 'Ginto Copilot', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: auto;
+    letter-spacing: -0.01em;
+    color: var(--color-primary-brown);
+  }
+  
+  .text-section-title {
+    font-family: 'Ginto Copilot Nord', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.33;
+    letter-spacing: -0.02em;
+    color: var(--color-primary-blue);
+  }
+  
+  .text-card-title {
+    font-family: 'Ginto Copilot Nord', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: auto;
+    letter-spacing: -0.02em;
+    color: var(--color-cream);
+    text-align: center;
+  }
+  
+  .text-card-heading {
+    font-family: 'Ginto Copilot', sans-serif;
+    font-weight: 480;
+    font-size: 28px;
+    line-height: 1.14;
+    letter-spacing: -0.01em;
+    color: var(--color-text-dark);
+  }
+  
+  .text-base {
+    font-family: 'Ginto Copilot', sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.53;
+    color: var(--color-primary-brown);
+  }
+  
+  .text-category {
+    font-family: 'Ginto Copilot Nord', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 1.26;
+    letter-spacing: -0.02em;
+    color: var(--color-cream);
+  }
+  
+  /* Card Styles */
+  .card-base {
+    border-radius: var(--radius-lg);
+    border: none;
+    transition: transform 0.3s ease;
+  }
+  
+  .card-base:hover {
+    transform: rotate(-2deg);
+  }
+  
+  .card-base:nth-child(even):hover {
+    transform: rotate(2deg);
+  }
+  
+  /* Featured cards should not have hover effect */
+  .card-base.no-hover:hover {
+    transform: none;
+  }
+
+  .card-base.no-hover.project-card {
+    transition: transform 0.3s ease;
+  }
+
+  .card-base.no-hover.project-card:hover {
+    transform: scale(1);
+  }
+
+  .card-hover-text {
+    font-family: 'Ginto Copilot Nord', sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: -0.02em;
+    color: var(--color-cream);
+  }
+  
+  /* Button Styles */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 12px;
+    height: 48px;
+    background: var(--color-text-dark);
+    color: var(--color-button-text);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-button);
+    backdrop-filter: blur(20px);
+    font-family: 'Ginto Copilot', sans-serif;
+    font-size: 17px;
+    line-height: 1.53;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background: #3d2a1a;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Squiggle decoration */
+  .squiggle-line {
+    width: 95px;
+    height: 16px;
+    stroke: var(--color-accent-yellow);
+    stroke-width: 3px;
+    fill: none;
+  }
+  
+  /* Gradient backgrounds */
+  .bg-gradient-main {
+    background: linear-gradient(180deg, #E6EFF5 0%, #FCF5F0 100%);
+  }
+  
+  .bg-gradient-hero {
+    background: linear-gradient(180deg, rgba(230, 239, 245, 1) 42%, rgba(245, 243, 230, 1) 100%);
+  }
 }
