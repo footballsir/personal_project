@@ -9,7 +9,7 @@ export default function Footer() {
         alignItems: 'center',
         marginTop: '240px',
         padding: '40px 20px',
-        fontFamily: 'Ginto Copilot, sans-serif',
+        fontFamily: 'Ginto Copilot, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Arial, sans-serif',
         fontSize: '15px',
         fontWeight: 400,
         color: 'rgba(39, 35, 32, 0.6)',

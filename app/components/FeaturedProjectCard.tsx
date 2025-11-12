@@ -85,7 +85,7 @@ export default function FeaturedProjectCard({ project, onClick }: FeaturedProjec
             <p 
               className="text-[#4B2414]"
               style={{
-                fontFamily: 'Ginto Copilot, sans-serif',
+                fontFamily: 'Ginto Copilot, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Arial, sans-serif',
                 fontWeight: 400,
                 fontSize: '17px',
                 lineHeight: '1.529em',
@@ -100,7 +100,7 @@ export default function FeaturedProjectCard({ project, onClick }: FeaturedProjec
             <h3 
               className="text-[#4B2414]"
               style={{
-                fontFamily: 'Ginto Copilot, sans-serif',
+                fontFamily: 'Ginto Copilot, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Arial, sans-serif',
                 fontWeight: 500,
                 fontSize: '28px',
                 lineHeight: '40px',
@@ -175,7 +175,7 @@ export default function FeaturedProjectCard({ project, onClick }: FeaturedProjec
           <p 
             className="text-[#4B2414]"
             style={{
-              fontFamily: 'Ginto Copilot, sans-serif',
+              fontFamily: 'Ginto Copilot, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Arial, sans-serif',
               fontWeight: 400,
               fontSize: '17px',
               lineHeight: '1.529em',
@@ -190,7 +190,7 @@ export default function FeaturedProjectCard({ project, onClick }: FeaturedProjec
           <h3 
             className="text-[#4B2414]"
             style={{
-              fontFamily: 'Ginto Copilot, sans-serif',
+              fontFamily: 'Ginto Copilot, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Arial, sans-serif',
               fontWeight: 500,
               fontSize: '28px',
               lineHeight: '40px',

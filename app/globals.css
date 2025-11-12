@@ -118,7 +118,7 @@
 @layer utilities {
   /* Typography Utilities */
   .text-hero {
-    font-family: 'Ginto Copilot Nord', sans-serif;
+    font-family: 'Ginto Copilot Nord', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 700;
     font-size: 60px;
     line-height: auto;
@@ -127,7 +127,7 @@
   }
   
   .text-hero-subtitle {
-    font-family: 'Ginto Copilot Nord', sans-serif;
+    font-family: 'Ginto Copilot Nord', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 400;
     font-size: 32px;
     line-height: auto;
@@ -145,7 +145,7 @@
   }
   
   .text-section-title {
-    font-family: 'Ginto Copilot Nord', sans-serif;
+    font-family: 'Ginto Copilot Nord', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 700;
     font-size: 36px;
     line-height: 1.33;
@@ -164,7 +164,7 @@
   }
   
   .text-card-heading {
-    font-family: 'Ginto Copilot', sans-serif;
+    font-family: 'Ginto Copilot', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 480;
     font-size: 28px;
     line-height: 1.14;
@@ -173,7 +173,7 @@
   }
   
   .text-base {
-    font-family: 'Ginto Copilot', sans-serif;
+    font-family: 'Ginto Copilot', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 400;
     font-size: 17px;
     line-height: 1.53;
@@ -218,7 +218,7 @@
   }
 
   .card-hover-text {
-    font-family: 'Ginto Copilot Nord', sans-serif;
+    font-family: 'Ginto Copilot Nord', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 400;
     font-size: 32px;
     line-height: 40px;
@@ -239,7 +239,7 @@
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-button);
     backdrop-filter: blur(20px);
-    font-family: 'Ginto Copilot', sans-serif;
+    font-family: 'Ginto Copilot', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     font-size: 17px;
     line-height: 1.53;
     transition: all 0.2s ease;
@@ -268,5 +268,94 @@
   
   .bg-gradient-hero {
     background: linear-gradient(180deg, rgba(230, 239, 245, 1) 42%, rgba(245, 243, 230, 1) 100%);
+  }
+
+  /* Featured projects responsive grid */
+  .featured-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 960px) {
+    .featured-projects-grid {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+    
+    .featured-projects-grid > * {
+      max-width: 480px !important;
+      width: 100%;
+    }
+
+    /* Project card responsive */
+    .project-card {
+      height: 360px !important;
+      max-width: 600px !important;
+      margin: 0 auto !important;
+      padding-left: 32px !important;
+      padding-right: 32px !important;
+      padding-top: 32px !important;
+    }
+
+    /* Card title responsive */
+    .text-card-title {
+      font-size: 32px !important;
+      margin-bottom: 20px !important;
+    }
+
+    /* Card hover text responsive */
+    .card-hover-text {
+      font-size: 24px !important;
+      line-height: 32px !important;
+    }
+
+    /* Hover text container position */
+    .project-card .pointer-events-none.absolute {
+      top: 24px !important;
+    }
+
+    /* Main container padding for home and project pages */
+    main .relative.z-10.max-w-\[1200px\],
+    main .relative.max-w-\[1200px\] {
+      padding-left: 24px !important;
+      padding-right: 24px !important;
+    }
+
+    /* Video container responsive padding */
+    .video-outer-container {
+      padding-left: 24px !important;
+      padding-right: 24px !important;
+    }
+
+    /* Video wrapper border radius */
+    .video-wrapper {
+      border-radius: 20px !important;
+    }
+
+    /* Mobile warning - show on small screens */
+    .mobile-warning {
+      display: flex !important;
+    }
+
+    /* Top navigation container padding */
+    nav .nav-container {
+      padding-left: 24px !important;
+      padding-right: 24px !important;
+    }
+  }
+
+  @media (min-width: 961px) {
+    /* Hide mobile warning on large screens */
+    .mobile-warning {
+      display: none !important;
+    }
+  }
+
+  @media (max-width: 640px) {
+    /* Project card mobile */
+    .project-card {
+      height: 288px !important;
+      max-width: 480px !important;
+    }
   }
 }

@@ -110,7 +110,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
           </div>
         )}
 
-  <div className="flex h-full w-full flex-col items-center transition-transform duration-300 ease-out group-hover:translate-y-[52px]">
+  <div className="flex h-full w-full flex-col items-center transition-transform duration-300 ease-out group-hover:translate-y-[52px] group-hover:max-[960px]:translate-y-[28px]">
           {/* Title - fills width, text centered, no bottom spacing */}
           <h3 className="text-card-title w-full text-center" style={{ marginBottom: '32px', paddingBottom: 0 }}>
             {project.title}

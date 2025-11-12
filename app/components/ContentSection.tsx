@@ -87,7 +87,7 @@ export default function ContentSection({
     >
       <h2 
         style={{
-          fontFamily: 'Ginto Copilot Nord, sans-serif',
+          fontFamily: 'Ginto Copilot Nord, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Arial, sans-serif',
           fontWeight: 700,
           fontSize: '36px',
           lineHeight: '1.33em',

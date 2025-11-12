@@ -157,7 +157,10 @@ function HomeContent() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 w-full max-w-[960px] mx-auto overflow-visible" style={{ gap: '40px' }}>
+          <div 
+            className="featured-projects-grid w-full max-w-[960px] mx-auto overflow-visible" 
+            style={{ gap: '40px' }}
+          >
             {featuredProjects.map((project) => (
               <FeaturedProjectCard
                 key={project.slug}

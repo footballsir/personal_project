@@ -81,7 +81,7 @@ export default function VideoPlaceholder({
   if (videoSrc) {
     // Always use full-width container to break out of parent constraints
     return (
-      <div style={outerContainerStyle}>
+      <div style={outerContainerStyle} className="video-outer-container">
         <div style={innerWrapperStyle}>
           {/* Stickers - placed before video so they appear behind */}
           {stickers.map((sticker, index) => (
@@ -109,7 +109,7 @@ export default function VideoPlaceholder({
           ))}
 
           {/* Video content */}
-          <div style={{ ...videoWrapperStyle, position: 'relative', zIndex: 1 }} className={className}>
+          <div style={{ ...videoWrapperStyle, position: 'relative', zIndex: 1 }} className={`video-wrapper ${className || ''}`}>
             <video
               src={videoSrc}
               autoPlay={autoPlay}

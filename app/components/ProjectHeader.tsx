@@ -55,19 +55,19 @@ export default function ProjectHeader({ title, description }: ProjectHeaderProps
           }}
         >
           <div className="flex flex-col items-center max-w-[720px]">
-            <h1
-              style={{
-                fontFamily: 'Ginto Copilot Nord, sans-serif',
-                fontWeight: 700,
-                fontSize: '48px',
-                lineHeight: '1.26em',
-                letterSpacing: '-0.02em',
-                color: '#33607D',
-                textAlign: 'center',
-                margin: 0,
-                marginBottom: '24px'
-              }}
-            >
+                  <h1 
+        style={{
+          fontFamily: 'Ginto Copilot Nord, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Arial, sans-serif',
+          fontWeight: 700,
+          fontSize: '48px',
+          lineHeight: '1.26em',
+          letterSpacing: '-0.02em',
+          color: '#33607D',
+          textAlign: 'center',
+          margin: 0,
+          marginBottom: '24px'
+        }}
+      >
               {title}
             </h1>
 

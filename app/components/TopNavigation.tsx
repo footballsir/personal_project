@@ -33,7 +33,7 @@ export default function TopNavigation({ title }: TopNavigationProps) {
       }}
     >
       <div
-        className="mx-auto"
+        className="mx-auto nav-container"
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -46,42 +46,35 @@ export default function TopNavigation({ title }: TopNavigationProps) {
       >
         <OutlinedButton icon="/images/icon_left.svg" text="" onClick={handleBack} />
         
-        {/* Temporarily hidden */}
-        {false && title && (
-          <div
-            className="transition-all duration-200"
-            style={{
-              position: 'absolute',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              padding: '0 16px',
-              height: '40px',
-              display: 'flex',
-              alignItems: 'center',
-              borderRadius: '20px',
-              border: '0.5px solid rgba(255, 255, 255, 0.6)',
-              backgroundColor: 'rgba(255, 255, 255, 0.35)',
-              backdropFilter: 'blur(40px) saturate(180%)',
-              WebkitBackdropFilter: 'blur(40px) saturate(180%)',
-              boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08), inset 0 0.5px 1px rgba(255, 255, 255, 0.8)',
-              fontFamily: 'Ginto Copilot, sans-serif',
-              fontSize: '17px',
-              fontWeight: 400,
-              lineHeight: '1.53',
-              color: '#272320',
-              letterSpacing: '0'
-            }}
-            onMouseEnter={(event) => {
-              event.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
-              // event.currentTarget.style.transform = 'translateX(-50%) scale(1.02)';
-            }}
-            onMouseLeave={(event) => {
-              event.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.35)';
-              // event.currentTarget.style.transform = 'translateX(-50%) scale(1)';
-            }}
-          >
-            {title}
-          </div>
+        {/* Mobile warning message - temporarily hidden */}
+        {false && (
+        <div
+          className="mobile-warning hidden max-[960px]:block"
+          style={{
+            position: 'absolute',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            padding: '0 16px',
+            height: '40px',
+            display: 'flex',
+            alignItems: 'center',
+            borderRadius: '20px',
+            border: '0.5px solid rgba(255, 255, 255, 0.6)',
+            backgroundColor: 'rgba(255, 255, 255, 0.35)',
+            backdropFilter: 'blur(40px) saturate(180%)',
+            WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08), inset 0 0.5px 1px rgba(255, 255, 255, 0.8)',
+            fontFamily: 'Ginto Copilot, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Arial, sans-serif',
+            fontSize: '14px',
+            fontWeight: 400,
+            lineHeight: '1.4',
+            color: '#272320',
+            letterSpacing: '0',
+            whiteSpace: 'nowrap'
+          }}
+        >
+          This site doesn&apos;t support mobile, view on larger screen
+        </div>
         )}
         
         <div style={{ width: '40px' }} /> {/* Spacer for symmetry */}
