@@ -31,7 +31,7 @@ interface VideoPlaceholderProps {
 export default function VideoPlaceholder({ 
   videoSrc,
   aspectRatio = '16/9',
-  borderRadius = '48px',
+  borderRadius = '40px',
   backgroundColor,
   padding,
   maxWidth = '1680px',

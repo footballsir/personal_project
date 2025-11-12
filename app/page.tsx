@@ -6,6 +6,7 @@ import Image from 'next/image';
 import ProjectCard from './components/ProjectCard';
 import FeaturedProjectCard from './components/FeaturedProjectCard';
 import ContactSection from './components/ContactSection';
+import Footer from './components/Footer';
 
 interface ProjectData {
   slug: string;
@@ -190,19 +191,13 @@ function HomeContent() {
               />
               <div className="text-base max-w-[720px] space-y-4 text-left">
               <p>
-                As a Senior Design Leader at Microsoft, I have the privilege of leading a talented team 
-                reimagining how AI transforms the browser experience. My work sits at the intersection 
-                of innovation, user experience, and cutting-edge technology.
+                I’m a Senior Design Leader at Microsoft, leading a team focused on reimagining how AI transforms the browser and the way people work. With over 240 million daily active users, Microsoft Edge is one of the world’s largest consumer products — and I led the creation of Edge AI Mode, making Edge the first mainstream AI browser in the market.
               </p>
               <p>
-                With years of experience in product design and a deep passion for creating intuitive, 
-                powerful tools, I focus on making complex AI capabilities accessible and delightful for 
-                millions of users worldwide.
+                Previously, I led design at ByteDance， SurveyMonkey, driving product innovation and AI-centered design initiatives across San Francisco and Shanghai.
               </p>
               <p>
-                I believe great design emerges from the balance of technical possibility, user needs, 
-                and creative vision. Every project is an opportunity to push boundaries while staying 
-                grounded in real human experiences.
+                As an AI-native design leader, I bridge technology, design, and product strategy — moving fluidly between them to create experiences that deliver both human impact and business value. My work centers on exploring how AI can not only enhance productivity but also redefine creativity, expression, and interaction itself.
               </p>
             </div>
             </div>
@@ -211,7 +206,7 @@ function HomeContent() {
 
         <ContactSection />
 
-        <div className="h-24" />
+        <Footer />
       </div>
     </main>
   );

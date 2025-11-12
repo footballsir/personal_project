@@ -3,11 +3,15 @@
 import { useRouter } from 'next/navigation';
 import OutlinedButton from '@/app/components/OutlinedButton';
 
+interface TopNavigationProps {
+  title?: string;
+}
+
 /**
- * Lightweight top navigation with a single back button
+ * Lightweight top navigation with a back button and centered title
  * Sticks to the top of the viewport for project detail pages
  */
-export default function TopNavigation() {
+export default function TopNavigation({ title }: TopNavigationProps) {
   const router = useRouter();
 
   const handleBack = () => {
@@ -25,20 +29,62 @@ export default function TopNavigation() {
         paddingTop: '8px',
         paddingBottom: '8px',
         // backdropFilter: 'blur(20px)',
-        background: 'linear-gradient(180deg, rgba(230, 239, 245, 1) 0%, rgba(230, 239, 245, 1) 100%)'
+        // background: 'linear-gradient(180deg, rgba(230, 239, 245, 1) 0%, rgba(230, 239, 245, 1) 100%)'
       }}
     >
       <div
         className="mx-auto"
         style={{
           display: 'flex',
-          justifyContent: 'flex-start',
+          alignItems: 'center',
+          justifyContent: 'space-between',
           maxWidth: '1680px',
           paddingLeft: '60px',
-          paddingRight: '60px'
+          paddingRight: '60px',
+          position: 'relative'
         }}
       >
-        <OutlinedButton text="Back" onClick={handleBack} />
+        <OutlinedButton icon="/images/icon_left.svg" text="" onClick={handleBack} />
+        
+        {/* Temporarily hidden */}
+        {false && title && (
+          <div
+            className="transition-all duration-200"
+            style={{
+              position: 'absolute',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              padding: '0 16px',
+              height: '40px',
+              display: 'flex',
+              alignItems: 'center',
+              borderRadius: '20px',
+              border: '0.5px solid rgba(255, 255, 255, 0.6)',
+              backgroundColor: 'rgba(255, 255, 255, 0.35)',
+              backdropFilter: 'blur(40px) saturate(180%)',
+              WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+              boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08), inset 0 0.5px 1px rgba(255, 255, 255, 0.8)',
+              fontFamily: 'Ginto Copilot, sans-serif',
+              fontSize: '17px',
+              fontWeight: 400,
+              lineHeight: '1.53',
+              color: '#272320',
+              letterSpacing: '0'
+            }}
+            onMouseEnter={(event) => {
+              event.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
+              // event.currentTarget.style.transform = 'translateX(-50%) scale(1.02)';
+            }}
+            onMouseLeave={(event) => {
+              event.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.35)';
+              // event.currentTarget.style.transform = 'translateX(-50%) scale(1)';
+            }}
+          >
+            {title}
+          </div>
+        )}
+        
+        <div style={{ width: '40px' }} /> {/* Spacer for symmetry */}
       </div>
     </nav>
   );

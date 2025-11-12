@@ -8,7 +8,7 @@ interface OutlinedButtonProps {
 }
 
 /**
- * Outlined button variant used for lightweight actions (e.g., Back button in project pages)
+ * Outlined button variant with Liquid Glass effect (macOS 26 style)
  */
 export default function OutlinedButton({ icon, text, onClick, size =40 }: OutlinedButtonProps) {
   const height = `${size}px`;
@@ -16,12 +16,15 @@ export default function OutlinedButton({ icon, text, onClick, size =40 }: Outlin
   return (
     <button
       type="button"
-      className="flex flex-row items-center justify-center transition-colors"
+      className="flex flex-row items-center justify-center transition-all duration-200"
       style={{
-        padding: '0 16px',
-        borderRadius: '12px',
-        border: '1px solid rgba(0, 0, 0, 0.08)',
-        backgroundColor: 'transparent',
+        padding: '0 8px',
+        borderRadius: '20px',
+        border: '0.5px solid rgba(255, 255, 255, 0.6)',
+        backgroundColor: 'rgba(255, 255, 255, 0.4)',
+        backdropFilter: 'blur(40px) saturate(180%)',
+        WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+        boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08), inset 0 0.5px 1px rgba(255, 255, 255, 0.8)',
         color: '#272320',
         height,
         minHeight: height,
@@ -30,10 +33,12 @@ export default function OutlinedButton({ icon, text, onClick, size =40 }: Outlin
       }}
       onClick={onClick}
       onMouseEnter={(event) => {
-        event.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.05)';
+        event.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.6)';
+        // event.currentTarget.style.transform = 'scale(1.02)';
       }}
       onMouseLeave={(event) => {
-        event.currentTarget.style.backgroundColor = 'transparent';
+        event.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.4)';
+        // event.currentTarget.style.transform = 'scale(1)';
       }}
     >
       {icon && (
@@ -42,20 +47,22 @@ export default function OutlinedButton({ icon, text, onClick, size =40 }: Outlin
           alt=""
           width={24}
           height={24}
-          style={{ marginRight: '8px' }}
+          style={{ marginRight: text ? '8px' : '0' }}
         />
       )}
-      <span
-        style={{
-          fontFamily: 'Ginto Copilot, sans-serif',
-          fontWeight: 400,
-          fontSize: '17px',
-          lineHeight: '1.529em',
-          letterSpacing: '-0.01em'
-        }}
-      >
-        {text}
-      </span>
+      {text && (
+        <span
+          style={{
+            fontFamily: 'Ginto Copilot, sans-serif',
+            fontWeight: 400,
+            fontSize: '17px',
+            lineHeight: '1.529em',
+            letterSpacing: '-0.01em'
+          }}
+        >
+          {text}
+        </span>
+      )}
     </button>
   );
 }
