@@ -7,6 +7,7 @@ import ProjectCard from './components/ProjectCard';
 import FeaturedProjectCard from './components/FeaturedProjectCard';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
+import Loading from './components/Loading';
 
 interface ProjectData {
   slug: string;
@@ -217,7 +218,7 @@ function HomeContent() {
 
 export default function Home() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+    <Suspense fallback={<Loading />}>
       <HomeContent />
     </Suspense>
   );

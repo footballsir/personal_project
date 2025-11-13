@@ -8,6 +8,7 @@ import VideoPlaceholder from '@/app/components/VideoPlaceholder';
 import ProjectHeader from '@/app/components/ProjectHeader';
 import TopNavigation from '@/app/components/TopNavigation';
 import Footer from '@/app/components/Footer';
+import Loading from '@/app/components/Loading';
 
 function AIBrowserContent() {
   return (
@@ -278,7 +279,7 @@ function AIBrowserContent() {
 
 export default function AIBrowserPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+    <Suspense fallback={<Loading />}>
       {/* Fixed background layer */}
       <div className="fixed inset-0 w-full h-screen bg-gradient-hero -z-10" />
       <TopNavigation title="AI Browser" />

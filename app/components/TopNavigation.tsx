@@ -1,6 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { useTransition } from 'react';
 import OutlinedButton from '@/app/components/OutlinedButton';
 
 interface TopNavigationProps {
@@ -13,9 +14,14 @@ interface TopNavigationProps {
  */
 export default function TopNavigation({ title }: TopNavigationProps) {
   const router = useRouter();
+  const [isPending, startTransition] = useTransition();
 
   const handleBack = () => {
-    router.push('/');
+    // Use startTransition to make navigation non-blocking
+    // This ensures the button click is responsive even when the page is busy
+    startTransition(() => {
+      router.push('/');
+    });
   };
 
   return (
@@ -44,7 +50,11 @@ export default function TopNavigation({ title }: TopNavigationProps) {
           position: 'relative'
         }}
       >
-        <OutlinedButton icon="/images/icon_left.svg" text="" onClick={handleBack} />
+                <OutlinedButton 
+          icon="/images/icon_left.svg" 
+          text="" 
+          onClick={handleBack}
+        />
         
         {/* Mobile warning message - temporarily hidden */}
         {false && (

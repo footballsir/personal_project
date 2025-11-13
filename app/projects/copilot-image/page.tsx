@@ -6,6 +6,7 @@ import ContentSection from '@/app/components/ContentSection';
 import ProjectHeader from '@/app/components/ProjectHeader';
 import TopNavigation from '@/app/components/TopNavigation';
 import Footer from '@/app/components/Footer';
+import Loading from '@/app/components/Loading';
 
 function CopilotImageContent() {
   return (
@@ -161,7 +162,7 @@ function CopilotImageContent() {
 
 export default function CopilotImagePage() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+    <Suspense fallback={<Loading />}>
       {/* Fixed background layer */}
       <div className="fixed inset-0 w-full h-screen bg-gradient-hero -z-10" />
       <TopNavigation title="AI Image" />
