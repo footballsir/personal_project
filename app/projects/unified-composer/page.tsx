@@ -70,7 +70,7 @@ function UnifiedComposerContent() {
         <VideoPlaceholder videoSrc="/videos/uc-ntp.mp4" />
 
         {/* Vision section */}
-        <section
+        {/* <section
           className="flex flex-col items-center"
           style={{ marginTop: '240px', marginBottom: '80px' }}
         >
@@ -82,10 +82,10 @@ function UnifiedComposerContent() {
               }
             ]}
           />
-        </section>
+        </section> */}
 
         {/* Video block - Vision */}
-        <VideoPlaceholder videoSrc="/videos/airbrowser-vision.mov" />
+        {/* <VideoPlaceholder videoSrc="/videos/airbrowser-vision.mov" /> */}
 
         {/* Section 3: Feeds */}
         <section

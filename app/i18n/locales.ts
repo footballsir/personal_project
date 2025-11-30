@@ -82,6 +82,10 @@ export const dictionary = {
         title: "Content remix: redefine how content is rendered",
         p1: "Content Remix reimagines how content is rendered inside the browser. With AI, a webpage is no longer static — it becomes fluid, adaptive, and deeply personal. Text, images, audio, or video can be remixed and presented in the most natural format for each user and context. Whether summarizing an article into visuals, turning a video into notes, or narrating content aloud, Content Remix lets AI reshape information to fit the user — not the other way around."
       },
+      mobile: {
+        title: "AI browser on mobile",
+        p1: "We didn't just stop at desktop. We brought the full power of Edge AI to mobile, creating the world's first mainstream AI browser for iOS and Android. With a redesigned interface optimized for touch and on-the-go interactions, users can now access Copilot, summarize content, and generate ideas anywhere, seamlessly syncing their AI journey across devices."
+      },
       userStory: {
         title: "User story behind the scene",
         p1: "To validate our design direction, we conducted in-depth user research with over 40 participants across different regions and browsing habits. The insights revealed clear themes — users resonated with a sleek, minimalist experience, seamless AI integration, and personalized, proactive assistance that saves time and feels intuitive. At the same time, they expressed concerns about control, transparency, privacy, and AI fatigue. These findings guided how we balanced intelligence and trust, ensuring AI feels both helpful and human."

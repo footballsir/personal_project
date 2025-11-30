@@ -36,19 +36,29 @@ function CopilotImageContent() {
             boxSizing: 'border-box'
           }}
         >
-          <Image
-            src="/images/copilotimage-hero.png"
-            alt="Copilot Image Hero"
-            width={1920}
-            height={1080}
-            style={{
-              maxWidth: '1680px',
-              width: '100%',
-              height: 'auto',
-              display: 'block',
-              borderRadius: '40px'
-            }}
-          />
+          <div 
+            style={{ 
+              width: '100%', 
+              maxWidth: '1680px', 
+              position: 'relative',
+              borderRadius: '40px',
+              overflow: 'hidden'
+            }} 
+            className="video-wrapper"
+          >
+            <Image
+              src="/images/copilotimage-hero.png"
+              alt="Copilot Image Hero"
+              width={1920}
+              height={1080}
+              style={{
+                maxWidth: '1680px',
+                width: '100%',
+                height: 'auto',
+                display: 'block'
+              }}
+            />
+          </div>
         </div>
 
         {/* Section 0: Imagery Principles */}
@@ -84,19 +94,29 @@ function CopilotImageContent() {
             boxSizing: 'border-box'
           }}
         >
-          <Image
-            src="/images/copilotimage-imageryprinciples-0.png"
-            alt="Imagery Principles"
-            width={1920}
-            height={1080}
-            style={{
-              maxWidth: '1680px',
-              width: '100%',
-              height: 'auto',
-              display: 'block',
-              borderRadius: '40px'
-            }}
-          />
+          <div 
+            style={{ 
+              width: '100%', 
+              maxWidth: '1680px', 
+              position: 'relative',
+              borderRadius: '40px',
+              overflow: 'hidden'
+            }} 
+            className="video-wrapper"
+          >
+            <Image
+              src="/images/copilotimage-imageryprinciples-0.png"
+              alt="Imagery Principles"
+              width={1920}
+              height={1080}
+              style={{
+                maxWidth: '1680px',
+                width: '100%',
+                height: 'auto',
+                display: 'block'
+              }}
+            />
+          </div>
         </div>
 
         {/* Section 1: Prompt Engineering */}
@@ -157,19 +177,29 @@ function CopilotImageContent() {
             boxSizing: 'border-box'
           }}
         >
-          <Image
-            src="/images/copilotimage-promptengineering.png"
-            alt="Prompt Engineering"
-            width={1920}
-            height={1080}
-            style={{
-              maxWidth: '1680px',
-              width: '100%',
-              height: 'auto',
-              display: 'block',
-              borderRadius: '40px'
-            }}
-          />
+          <div 
+            style={{ 
+              width: '100%', 
+              maxWidth: '1680px', 
+              position: 'relative',
+              borderRadius: '40px',
+              overflow: 'hidden'
+            }} 
+            className="video-wrapper"
+          >
+            <Image
+              src="/images/copilotimage-promptengineering.png"
+              alt="Prompt Engineering"
+              width={1920}
+              height={1080}
+              style={{
+                maxWidth: '1680px',
+                width: '100%',
+                height: 'auto',
+                display: 'block'
+              }}
+            />
+          </div>
         </div>
 
         {/* Section 2: Imagery Principles */}
@@ -205,19 +235,29 @@ function CopilotImageContent() {
             boxSizing: 'border-box'
           }}
         >
-          <Image
-            src="/images/copilotimage-imageryprinciples.png"
-            alt="Imagery Principles"
-            width={1920}
-            height={1080}
-            style={{
-              maxWidth: '1680px',
-              width: '100%',
-              height: 'auto',
-              display: 'block',
-              borderRadius: '40px'
-            }}
-          />
+          <div 
+            style={{ 
+              width: '100%', 
+              maxWidth: '1680px', 
+              position: 'relative',
+              borderRadius: '40px',
+              overflow: 'hidden'
+            }} 
+            className="video-wrapper"
+          >
+            <Image
+              src="/images/copilotimage-imageryprinciples.png"
+              alt="Imagery Principles"
+              width={1920}
+              height={1080}
+              style={{
+                maxWidth: '1680px',
+                width: '100%',
+                height: 'auto',
+                display: 'block'
+              }}
+            />
+          </div>
         </div>
 
         <Footer />

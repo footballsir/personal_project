@@ -19,6 +19,7 @@ interface VideoPlaceholderProps {
   poster?: string;
   style?: React.CSSProperties;
   className?: string;
+  showStickers?: boolean;
 }
 
 /**
@@ -43,7 +44,8 @@ export default function VideoPlaceholder({
   playsInline = true,
   poster,
   style,
-  className
+  className,
+  showStickers = true
 }: VideoPlaceholderProps) {
   // Use stickers hook (limit to 1-2 stickers for video decoration)
   const { stickers } = useStickers({ count: { min: 1, max: 2 } });
@@ -86,7 +88,7 @@ export default function VideoPlaceholder({
       <div style={outerContainerStyle} className="video-outer-container">
         <div style={innerWrapperStyle}>
           {/* Stickers - placed before video so they appear behind */}
-          {stickers.map((sticker, index) => (
+          {showStickers && stickers.map((sticker, index) => (
             <div
               key={index}
               className="transition-transform duration-300 [transform:rotate(var(--sticker-rotation))]"
@@ -151,7 +153,7 @@ export default function VideoPlaceholder({
     <div style={outerContainerStyle}>
       <div style={innerWrapperStyle}>
         {/* Stickers - placed before placeholder so they appear behind */}
-        {stickers.map((sticker, index) => (
+        {showStickers && stickers.map((sticker, index) => (
           <div
             key={index}
             className="transition-transform duration-300 [transform:rotate(var(--sticker-rotation))]"

@@ -43,6 +43,7 @@ function CopilotLabsContent() {
           loop
           muted
           controls={false}
+          showStickers={false}
         />
 
         {/* Section 1: I code to prototype on Copilot labs */}
@@ -53,6 +54,7 @@ function CopilotLabsContent() {
           <div style={{ marginBottom: '80px' }}>
             <ContentSection
               title={t.copilotLabsPage.codeToPrototype.title}
+              titleColor="#311F10"
               paragraphs={[
                 {
                   text: t.copilotLabsPage.codeToPrototype.p1
@@ -80,6 +82,7 @@ function CopilotLabsContent() {
         >
           <ContentSection
             title={t.copilotLabsPage.codingDemo.title}
+            titleColor="#311F10"
             paragraphs={[
               {
                 text: t.copilotLabsPage.codingDemo.p1
@@ -89,7 +92,7 @@ function CopilotLabsContent() {
         </section>
 
         {/* Video - 3D vibe coding demo */}
-        <VideoPlaceholder videoSrc="/videos/copilot3d-vibe.mp4" />
+        <VideoPlaceholder videoSrc="/videos/copilot3d-vibe.mp4" showStickers={false} />
 
         <Footer />
       </div>

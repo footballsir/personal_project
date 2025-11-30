@@ -203,7 +203,7 @@ function AIBrowserContent() {
         <VideoPlaceholder videoSrc="/videos/aibrowser-journey.mp4" />
 
         {/* Vision section */}
-        <section
+        {/* <section
           className="flex flex-col items-center"
           style={{ marginTop: '240px', marginBottom: '80px' }}
         >
@@ -215,10 +215,10 @@ function AIBrowserContent() {
               }
             ]}
           />
-        </section>
+        </section> */}
 
         {/* Video block - Vision */}
-        <VideoPlaceholder videoSrc="/videos/airbrowser-vision.mov" />
+        {/* <VideoPlaceholder videoSrc="/videos/airbrowser-vision.mov" /> */}
 
         {/* Content remix section */}
         <section
@@ -237,6 +237,60 @@ function AIBrowserContent() {
 
         {/* Video block 5 - Content Remix */}
         <VideoPlaceholder videoSrc="/videos/aibrowser-content.mp4" />
+
+        {/* Mobile section */}
+        <section
+          className="flex flex-col items-center"
+          style={{ marginTop: '240px', marginBottom: '80px' }}
+        >
+          <ContentSection
+            title={t.aiBrowserPage.mobile.title}
+            paragraphs={[
+              {
+                text: t.aiBrowserPage.mobile.p1
+              }
+            ]}
+          />
+        </section>
+
+        {/* Mobile Image - Full width style like videos */}
+        <div
+          className="video-outer-container"
+          style={{
+            width: '100vw',
+            position: 'relative',
+            left: '50%',
+            marginLeft: '-50vw',
+            display: 'flex',
+            justifyContent: 'center',
+            paddingLeft: '80px',
+            paddingRight: '80px',
+            boxSizing: 'border-box'
+          }}
+        >
+          <div 
+            style={{ 
+              width: '100%', 
+              maxWidth: '1680px', 
+              position: 'relative',
+              borderRadius: '40px',
+              overflow: 'hidden'
+            }} 
+            className="video-wrapper"
+          >
+            <Image
+              src="/images/aibrowser-mobile.png"
+              alt="AI browser on mobile"
+              width={1680}
+              height={945}
+              style={{
+                width: '100%',
+                height: 'auto',
+                display: 'block'
+              }}
+            />
+          </div>
+        </div>
 
         {/* User story section */}
         <section
