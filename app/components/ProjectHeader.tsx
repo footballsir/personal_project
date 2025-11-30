@@ -3,80 +3,69 @@ import Image from 'next/image';
 interface ProjectHeaderProps {
   title: string;
   description: string;
+  titleColor?: string;
+  showSticker?: boolean;
 }
 
 /**
  * Reusable project header component with clouds decoration and hero section
  * Used across all project detail pages
  */
-export default function ProjectHeader({ title, description }: ProjectHeaderProps) {
+export default function ProjectHeader({ 
+  title, 
+  description, 
+  titleColor = '#33607D',
+  showSticker = true
+}: ProjectHeaderProps) {
   return (
     <>
-      <div
-        className="absolute transition-transform duration-300 hover:scale-[1.2]"
-        style={{
-          width: '240px',
-          height: '240px',
-          zIndex: 10,
-          pointerEvents: 'auto',
-          right: 0,
-          top: 0
-        }}
-      >
-        <Image
-          src="/images/sticker_proejct_header.png"
-          alt=""
-          fill
-          className="object-cover"
-        />
-      </div>
-
-      {/* Clouds decoration with hero section overlay */}
-      <div style={{ position: 'relative', marginBottom: '48px' }}>
-        <Image
-          src="/images/clouds.svg"
-          alt=""
-          width={1200}
-          height={600}
-          className="mx-auto"
-          style={{ position: 'relative', zIndex: 5 }}
-        />
-
-        {/* Hero section - Title + Description - positioned over clouds */}
-        <section
-          className="flex flex-col items-center"
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: '100%',
-            zIndex: 20
-          }}
+      {showSticker && (
+        <div
+          className="absolute w-[480px] h-[480px] z-0 transition-all duration-300 ease-out opacity-100 transform"
+          style={{ right: '-240px', top: '-240px' }}
         >
-          <div className="flex flex-col items-center max-w-[720px]">
-                  <h1 
+          <Image
+            src="/images/sticker2.png"
+            alt=""
+            fill
+            className="object-cover"
+          />
+        </div>
+      )}
+
+      {/* Hero section - Title + Description */}
+      <section
+        className="flex flex-col items-center"
         style={{
-          fontFamily: 'Ginto Copilot Nord, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Arial, sans-serif',
-          fontWeight: 700,
-          fontSize: '48px',
-          lineHeight: '1.26em',
-          letterSpacing: '-0.02em',
-          color: '#33607D',
-          textAlign: 'center',
-          margin: 0,
-          marginBottom: '24px'
+          marginTop: '120px',
+          marginBottom: '120px',
+          width: '100%',
+          position: 'relative',
+          zIndex: 20
         }}
       >
-              {title}
-            </h1>
+        <div className="flex flex-col items-center max-w-[720px]">
+          <h1 
+            style={{
+              fontFamily: 'Ginto Copilot Nord, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Arial, sans-serif',
+              fontWeight: 700,
+              fontSize: '48px',
+              lineHeight: '1.26em',
+              letterSpacing: '-0.02em',
+              color: titleColor,
+              textAlign: 'center',
+              margin: 0,
+              marginBottom: '24px'
+            }}
+          >
+            {title}
+          </h1>
 
-            <p className="text-base" style={{ textAlign: 'left' }}>
-              {description}
-            </p>
-          </div>
-        </section>
-      </div>
+          <p className="text-base" style={{ textAlign: 'left' }}>
+            {description}
+          </p>
+        </div>
+      </section>
     </>
   );
 }

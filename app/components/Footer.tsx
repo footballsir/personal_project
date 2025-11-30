@@ -1,4 +1,9 @@
+'use client';
+
+import { useLanguage } from '@/app/i18n/LanguageContext';
+
 export default function Footer() {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
   
   return (
@@ -16,7 +21,7 @@ export default function Footer() {
         lineHeight: '1.53'
       }}
     >
-      Designed and developed by Menghui with AI @ {currentYear}
+      {t.footer.text} {currentYear}
     </footer>
   );
 }

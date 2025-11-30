@@ -9,15 +9,26 @@ import ProjectHeader from '@/app/components/ProjectHeader';
 import TopNavigation from '@/app/components/TopNavigation';
 import Footer from '@/app/components/Footer';
 import Loading from '@/app/components/Loading';
+import { useLanguage } from '@/app/i18n/LanguageContext';
 
 function AIBrowserContent() {
+  const { t } = useLanguage();
+
   return (
     <main className="relative min-h-screen overflow-x-hidden">
       <div className="relative max-w-[1200px] mx-auto px-8">
         <ProjectHeader
-          title="Microsoft Edge - a rethink of AI Browser"
-          description="As the Senior Design Leader, I led a team of five designers to shape the vision and experience of Edge AI Browser, transforming it into the world’s largest AI-powered browser, leading the industry with over 20 million weekly users using Edge AI mode."
+          title={t.aiBrowserPage.header.title}
+          description={t.aiBrowserPage.header.description}
         />
+
+        {/* Microsoft Edge AI browser Button */}
+        <div className="flex justify-center" style={{ marginTop: '-80px', marginBottom: '80px', position: 'relative', zIndex: 30 }}>
+          <Button 
+            text="Microsoft Edge AI browser" 
+            onClick={() => window.open('https://www.microsoft.com/en-us/edge/copilot-mode?form=MG0AWI&cs=1918255293', '_blank')}
+          />
+        </div>
 
         {/* Video block 1 - Full width */}
         <VideoPlaceholder videoSrc="/videos/aibrowser-hero.mp4" />
@@ -30,10 +41,10 @@ function AIBrowserContent() {
           {/* Title + Squiggle + Description */}
           <div style={{ marginBottom: '80px' }}>
             <ContentSection
-              title="Why AI browser"
+              title={t.aiBrowserPage.whyAiBrowser.title}
               paragraphs={[
                 {
-                  text: "As AI-first browsers emerged — Dia (Jun 2025), Comet (Jul 2025), Chrome AI Mode (Sep 2025), and ChatGPT Atlas (Oct 2025) — it became clear the future of browsing was intelligent. We built Edge AI Mode because the browser and OS are the two largest AI platforms — they access all information, connect to every app, and understand user context. To surpass Chrome, Edge needed a disruptive leap, redefining the browser as an intelligent companion that learns, anticipates, and empowers how people browse and create."
+                  text: t.aiBrowserPage.whyAiBrowser.p1
                 }
               ]}
             />
@@ -83,13 +94,14 @@ function AIBrowserContent() {
           {/* Content centered on background */}
           <div className="flex flex-col items-center" style={{ position: 'relative', zIndex: 1, paddingTop: '309px' }}>
             <ContentSection
-              title="How might we?"
+              title={t.aiBrowserPage.hmw.title}
               paragraphs={[
                 {
-                  text: "Define a bold and uncompromising vision of  the AI Browser—one that transforms how we think about relationship between you, your AI Companion, the browser and the web."
+                  text: t.aiBrowserPage.hmw.p1
                 },
                 {
-                  text: "4 designers, 6 days of sprinting, So many HMWs, post its and feature ideas."
+                  text: t.aiBrowserPage.hmw.p2,
+                  boldWords: ["4 designers, 6 days of sprinting", "4 位设计师，6 天的冲刺"]
                 }
               ]}
             />
@@ -97,6 +109,7 @@ function AIBrowserContent() {
 
           {/* Full-width HMW image */}
           <div
+            className="video-outer-container"
             style={{
               position: 'relative',
               width: '100vw',
@@ -104,7 +117,10 @@ function AIBrowserContent() {
               marginLeft: '-50vw',
               marginTop: '80px',
               display: 'flex',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              paddingLeft: '80px',
+              paddingRight: '80px',
+              boxSizing: 'border-box'
             }}
           >
             <Image
@@ -123,25 +139,25 @@ function AIBrowserContent() {
           style={{ marginTop: '240px', marginBottom: '80px' }}
         >
           <ContentSection
-            title="A complete rethink of browser and its architecture with AI"
+            title={t.aiBrowserPage.rethink.title}
             paragraphs={[
               {
-                text: "We realized this was the moment to rebuild the browser from the ground up. An AI Browser can't just add intelligence on top — it must redefine how people browse, organize and think."
+                text: t.aiBrowserPage.rethink.p1
               },
               {
-                text: "1. AI belongs in the core browsing flow, not on the side.",
-                boldWords: ["1. AI belongs in the core browsing flow, not on the side."]
+                text: t.aiBrowserPage.rethink.p2,
+                boldWords: [t.aiBrowserPage.rethink.p2]
               },
               {
-                text: "2. AI transforms from reactive to proactive, from cold utility to a warm, human companion.",
-                boldWords: ["2. AI transforms from reactive to proactive"]
+                text: t.aiBrowserPage.rethink.p3,
+                boldWords: ["2. AI transforms from reactive to proactive", "2. AI 从被动转变为主动"]
               },
               {
-                text: "3. AI should act as the new OS layer for information, changing how users access, reason about, and navigate the web.",
-                boldWords: ["3. AI should act as the new OS layer for information"]
+                text: t.aiBrowserPage.rethink.p4,
+                boldWords: ["3. AI should act as the new OS layer for information", "3. AI 应该充当信息的新操作系统层"]
               },
               {
-                text: "This required not just a product reinvention, but a design reinvention — rethinking interaction patterns, visual language, and how intelligence itself feels inside the browser."
+                text: t.aiBrowserPage.rethink.p5
               }
             ]}
           />
@@ -150,22 +166,22 @@ function AIBrowserContent() {
         {/* Video block 2 - Framework */}
         <VideoPlaceholder videoSrc="/videos/aibrowser-framework.mp4" />
 
-        {/* Unified composer section */}
+        {/* Unified AI Composer section */}
         <section
           className="flex flex-col items-center"
           style={{ marginTop: '240px', marginBottom: '80px' }}
         >
           <ContentSection
-            title="Unified composer: AI in the main flow"
+            title={t.aiBrowserPage.unifiedComposer.title}
             paragraphs={[
               {
-                text: "At the heart of this vision is the Unified Composer — the foundation of how AI becomes part of the main browsing journey. In a browser, the most essential actions all begin in one place: the address bar and search box. Unified Composer brings AI conversation, browsing, and search together into this single, continuous flow. Users can now talk to AI anywhere, without switching context — asking questions, refining searches, or letting AI help them explore and make sense of what they see. It turns everyday browsing into a natural dialogue between the user, the web, and intelligence itself."
+                text: t.aiBrowserPage.unifiedComposer.p1
               }
             ]}
           />
         </section>
 
-        {/* Video block 3 - Unified Composer */}
+        {/* Video block 3 - Unified AI Composer */}
         <VideoPlaceholder videoSrc="/videos/aibrowser-uc.mp4" />
 
         {/* Journey section */}
@@ -174,10 +190,10 @@ function AIBrowserContent() {
           style={{ marginTop: '240px', marginBottom: '80px' }}
         >
           <ContentSection
-            title="Journey: AI way to browse"
+            title={t.aiBrowserPage.journey.title}
             paragraphs={[
               {
-                text: "Journey redefines how users browse and make sense of the web. It transforms AI from a passive tool into an active, empathetic companion. By understanding a user's browsing history and intent, AI can automatically summarize and organize related content into a visual, topic-based Journey. Within each Journey, users can seamlessly explore, revisit, and complete all tasks connected to a topic — turning scattered tabs and searches into a coherent, meaningful flow."
+                text: t.aiBrowserPage.journey.p1
               }
             ]}
           />
@@ -186,16 +202,34 @@ function AIBrowserContent() {
         {/* Video block 4 - Journey */}
         <VideoPlaceholder videoSrc="/videos/aibrowser-journey.mp4" />
 
+        {/* Vision section */}
+        <section
+          className="flex flex-col items-center"
+          style={{ marginTop: '240px', marginBottom: '80px' }}
+        >
+          <ContentSection
+            title={t.aiBrowserPage.vision.title}
+            paragraphs={[
+              {
+                text: t.aiBrowserPage.vision.p1
+              }
+            ]}
+          />
+        </section>
+
+        {/* Video block - Vision */}
+        <VideoPlaceholder videoSrc="/videos/airbrowser-vision.mov" />
+
         {/* Content remix section */}
         <section
           className="flex flex-col items-center"
           style={{ marginTop: '240px', marginBottom: '80px' }}
         >
           <ContentSection
-            title="Content remix: redefine how content is rendered"
+            title={t.aiBrowserPage.contentRemix.title}
             paragraphs={[
               {
-                text: "Content Remix reimagines how content is rendered inside the browser. With AI, a webpage is no longer static — it becomes fluid, adaptive, and deeply personal. Text, images, audio, or video can be remixed and presented in the most natural format for each user and context. Whether summarizing an article into visuals, turning a video into notes, or narrating content aloud, Content Remix lets AI reshape information to fit the user — not the other way around."
+                text: t.aiBrowserPage.contentRemix.p1
               }
             ]}
           />
@@ -210,10 +244,10 @@ function AIBrowserContent() {
           style={{ marginTop: '240px', marginBottom: '80px' }}
         >
           <ContentSection
-            title="User story behind the scene"
+            title={t.aiBrowserPage.userStory.title}
             paragraphs={[
               {
-                text: "To validate our design direction, we conducted in-depth user research with over 40 participants across different regions and browsing habits. The insights revealed clear themes — users resonated with a sleek, minimalist experience, seamless AI integration, and personalized, proactive assistance that saves time and feels intuitive. At the same time, they expressed concerns about control, transparency, privacy, and AI fatigue. These findings guided how we balanced intelligence and trust, ensuring AI feels both helpful and human."
+                text: t.aiBrowserPage.userStory.p1
               }
             ]}
             alignment="center"
@@ -228,6 +262,7 @@ function AIBrowserContent() {
           controls={true}
           maxWidth="1200px"
           borderRadius="40px"
+          poster="/images/aibrowser-uservideocover.png"
         />
 
         {/* Impact of Copilot mode section */}
@@ -236,10 +271,10 @@ function AIBrowserContent() {
           style={{ marginTop: '240px', marginBottom: '80px', gap: '40px' }}
         >
           <ContentSection
-            title="Impact of Copilot mode"
+            title={t.aiBrowserPage.impact.title}
             paragraphs={[
               {
-                text: "Launched in 2025 under Microsoft AI CEO Mustafa Suleyman, Edge AI Mode became the most impactful AI innovation in Edge's history — transforming it into the largest AI browser in the market with over 20 million weekly active users. For the first time in 20 years, Edge re-imagined how people interact with the web — making AI a native, seamless part of browsing. The release received widespread media coverage and highly positive user feedback, establishing Edge as a leader in the new era of intelligent, human-centered browsing."
+                text: t.aiBrowserPage.impact.p1
               }
             ]}
           />

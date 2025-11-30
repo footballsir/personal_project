@@ -1,28 +1,33 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
-
-const contactItems = [
-  {
-    name: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/menghui-hu-773566130/',
-    icon: '/images/contact/contact-linkedin.svg',
-    external: true
-  },
-  {
-    name: 'GitHub',
-    href: 'https://github.com/menghuihu_microsoft',
-    icon: '/images/contact/contact-github.svg',
-    external: true
-  },
-  {
-    name: 'Email',
-    href: 'mailto:menghuihu0405@gmail.com',
-    icon: '/images/contact/contact-email.svg',
-    external: false
-  }
-];
+import { useLanguage } from '@/app/i18n/LanguageContext';
 
 export default function ContactSection() {
+  const { t } = useLanguage();
+
+  const contactItems = [
+    {
+      name: t.contact.linkedin,
+      href: 'https://www.linkedin.com/in/menghui-hu-773566130/',
+      icon: '/images/contact/contact-linkedin.svg',
+      external: true
+    },
+    {
+      name: 'GitHub',
+      href: 'https://github.com/menghuihu_microsoft',
+      icon: '/images/contact/contact-github.svg',
+      external: true
+    },
+    {
+      name: t.contact.email,
+      href: 'mailto:menghuihu0405@gmail.com',
+      icon: '/images/contact/contact-email.svg',
+      external: false
+    }
+  ];
+
   return (
     <section
       className="flex flex-col items-center text-center px-8"

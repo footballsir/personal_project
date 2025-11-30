@@ -4,6 +4,7 @@ import type { CSSProperties } from 'react';
 import Image from 'next/image';
 import { useStickers } from '@/app/hooks/useStickers';
 import type { StickerEdge } from '@/app/hooks/useStickers';
+import { useRef } from 'react';
 
 interface ProjectData {
   slug: string;
@@ -57,6 +58,35 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
 
   // Use stickers hook for project card (960x576)
   const { stickers } = useStickers(stickersConfig);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+
+    const card = cardRef.current;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    // Calculate rotation based on mouse position
+    // Max rotation: 3 degrees
+    const rotateX = ((y - centerY) / centerY) * -3; 
+    const rotateY = ((x - centerX) / centerX) * 3;
+
+    card.style.transition = 'transform 0.1s ease-out';
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+  };
+
+  const handleMouseLeave = () => {
+    if (!cardRef.current) return;
+    
+    // Smoothly reset on leave
+    cardRef.current.style.transition = 'transform 0.5s ease-out';
+    cardRef.current.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+  };
 
   return (
     <div style={{ position: 'relative', width: '100%', maxWidth: '960px', margin: '0 auto' }}>
@@ -64,7 +94,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
       {stickers.map((sticker, index) => (
         <div
           key={index}
-          className="transition-transform duration-300 [transform:rotate(var(--sticker-rotation))] hover:[transform:rotate(var(--sticker-rotation))_scale(1.2)]"
+          className="transition-transform duration-300 [transform:rotate(var(--sticker-rotation))]"
           style={{
             position: 'absolute',
             width: '192px',
@@ -87,6 +117,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
 
       {/* Card content */}
       <div
+        ref={cardRef}
         className="card-base no-hover project-card group cursor-pointer relative w-full h-[576px] overflow-hidden"
         style={{ 
           backgroundColor: project.color, 
@@ -95,9 +126,12 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
           paddingTop: '48px', 
           boxSizing: 'border-box',
           position: 'relative',
-          zIndex: 1
+          zIndex: 1,
+          transformStyle: 'preserve-3d'
         }}
         onClick={onClick}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
       >
         {project.summary && (
           <div
@@ -118,13 +152,13 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
 
           {/* Image container - fills remaining space */}
           {project.cover && (
-            <div className="relative w-full flex-1 transition-transform duration-300 ease-out" style={{ borderRadius: '8px 8px 0 0', overflow: 'hidden' }}>
+            <div className="relative w-full flex-1" style={{ borderRadius: '8px 8px 0 0' }}>
               <Image
                 src={project.cover}
                 alt={project.title}
                 width={840}
                 height={0}
-                className="w-full h-auto"
+                className="w-full h-auto transition-all duration-300 ease-out group-hover:shadow-[0_32px_64px_rgba(0,0,0,0.4)]"
                 style={{ borderRadius: '8px 8px 0 0' }}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 840px"
               />

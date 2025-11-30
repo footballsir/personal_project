@@ -9,18 +9,29 @@ import ProjectHeader from '@/app/components/ProjectHeader';
 import TopNavigation from '@/app/components/TopNavigation';
 import Footer from '@/app/components/Footer';
 import Loading from '@/app/components/Loading';
+import { useLanguage } from '@/app/i18n/LanguageContext';
 
 function JourneyContent() {
+  const { t } = useLanguage();
+
   return (
     <main className="relative min-h-screen overflow-x-hidden">
       <div className="relative max-w-[1200px] mx-auto px-8">
         <ProjectHeader
-          title="Journey"
-          description="Journey redefines how users interact with the web. It transforms AI from a passive tool into an active, empathetic companion, capable of understanding user intent and context. Based on browsing history, AI can automatically summarize related content, mapping it into a visual, topic-based Journey. Within each Journey, users can efficiently explore, organize, and complete all tasks tied to a specific topic — turning fragmented tabs into a coherent story. The impact was remarkable: Journey received widespread positive feedback from media and users alike, recognized as one of the most innovative ways to experience AI-native browsing and storytelling on the web."
+          title={t.journeyPage.header.title}
+          description={t.journeyPage.header.description}
         />
 
+        {/* AI browser release video Button */}
+        <div className="flex justify-center" style={{ marginTop: '-80px', marginBottom: '80px', position: 'relative', zIndex: 30 }}>
+          <Button 
+            text="Microsoft release video" 
+            onClick={() => window.open('https://www.youtube.com/watch?v=5fUKoF0_6jQ', '_blank')}
+          />
+        </div>
+
         {/* Hero video - Full width */}
-        <VideoPlaceholder videoSrc="/videos/aibrowser-journey.mp4" />
+        <VideoPlaceholder videoSrc="/videos/journey-hero.mp4" />
 
         {/* Section 1: Vision */}
         <section
@@ -28,16 +39,34 @@ function JourneyContent() {
           style={{ marginTop: '240px', marginBottom: '80px' }}
         >
           <ContentSection
-            title="Vision - Passive AI to Proactive Intelligence"
+            title={t.journeyPage.vision.title}
             paragraphs={[
               {
-                text: "Journey takes Edge AI Mode to a new level, where AI becomes truly proactive — not just responding to queries, but organizing, guiding, and completing tasks for the user. It redefines how people interact with the web, turning browsing into a continuous, intelligent dialogue. By analyzing a user's browsing history and context, Journey can aggregate related pages into topics, surface insights, start conversations, and even help users finish tasks. It represents a shift from AI as a tool to AI as a thinking partner — one that understands what users are trying to achieve and helps them get there faster."
+                text: t.journeyPage.vision.p1
               }
             ]}
           />
         </section>
 
         {/* Video 1 - Vision */}
+        <VideoPlaceholder videoSrc="/videos/journey-vision-0.mp4" />
+
+        {/* Section 1.5: Canvas */}
+        <section
+          className="flex flex-col items-center"
+          style={{ marginTop: '240px', marginBottom: '80px' }}
+        >
+          <ContentSection
+            title={t.journeyPage.canvas.title}
+            paragraphs={[
+              {
+                text: t.journeyPage.canvas.p1
+              }
+            ]}
+          />
+        </section>
+
+        {/* Video 1.5 - Canvas */}
         <VideoPlaceholder videoSrc="/videos/journey-vision.mp4" />
 
         {/* Section 2: Flow */}
@@ -46,10 +75,10 @@ function JourneyContent() {
           style={{ marginTop: '240px', marginBottom: '80px' }}
         >
           <ContentSection
-            title="From Vision to Experience — Bringing Journey to Life"
+            title={t.journeyPage.flow.title}
             paragraphs={[
               {
-                text: "In Edge, Journey comes to life through AI-generated Journey cards and direct Copilot conversations. As users browse, AI continuously understands their context — whether they're planning a business project or organizing a trip — and surfaces relevant Journeys with summarized insights, links, and next steps. Users can dive in instantly, chatting with Copilot to refine plans, explore options, or act on recommendations. Each Journey evolves dynamically with user intent, delivering personalized, contextual guidance that feels natural and anticipatory — turning browsing into true collaboration with AI."
+                text: t.journeyPage.flow.p1
               }
             ]}
           />
@@ -64,10 +93,10 @@ function JourneyContent() {
           style={{ marginTop: '240px', marginBottom: '80px' }}
         >
           <ContentSection
-            title="Card Design — Emotional, Intelligent, and Human"
+            title={t.journeyPage.card.title}
             paragraphs={[
               {
-                text: "The Journey Card was crafted to be more than just a functional surface — it's a bridge between intelligence and emotion. Each card blends clarity, warmth, and the subtle presence of AI, using visual rhythm, motion, and tone to make intelligence feel approachable and alive. The design conveys a sense of care and companionship — AI that not only helps users work more efficiently, but also connects with them emotionally. Through thoughtful composition, adaptive color, and gentle interaction cues, the Journey Card turns productivity into a moment of calm, trust, and inspiration."
+                text: t.journeyPage.card.p1
               }
             ]}
           />
@@ -82,10 +111,10 @@ function JourneyContent() {
           style={{ marginTop: '240px', marginBottom: '80px', gap: '40px' }}
         >
           <ContentSection
-            title="Deeply Recognized, Resonant"
+            title={t.journeyPage.impact.title}
             paragraphs={[
               {
-                text: "Journey quickly became one of the most talked-about innovations within Edge AI Mode. It received overwhelmingly positive responses from both users and the press, praised for making browsing feel more intelligent, intuitive, and human. The feature was highlighted in major media coverage as a breakthrough in proactive AI design, and celebrated internally by Microsoft executive leaders as a defining step toward the future of AI-native browsing. Beyond engagement metrics, Journey's impact was emotional — it made people feel that AI in Edge wasn't just powerful, but genuinely thoughtful and personal."
+                text: t.journeyPage.impact.p1
               }
             ]}
           />
@@ -130,7 +159,7 @@ export default function JourneyPage() {
     <Suspense fallback={<Loading />}>
       {/* Fixed background layer */}
       <div className="fixed inset-0 w-full h-screen bg-gradient-hero -z-10" />
-      <TopNavigation title="Journey" />
+      <TopNavigation title="AI Canvas" />
       <JourneyContent />
     </Suspense>
   );

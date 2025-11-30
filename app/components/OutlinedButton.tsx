@@ -5,12 +5,13 @@ interface OutlinedButtonProps {
   text: string;
   onClick?: () => void;
   size?: number;
+  transparent?: boolean;
 }
 
 /**
  * Outlined button variant with Liquid Glass effect (macOS 26 style)
  */
-export default function OutlinedButton({ icon, text, onClick, size =40 }: OutlinedButtonProps) {
+export default function OutlinedButton({ icon, text, onClick, size = 40, transparent = false }: OutlinedButtonProps) {
   const height = `${size}px`;
 
   return (
@@ -21,10 +22,10 @@ export default function OutlinedButton({ icon, text, onClick, size =40 }: Outlin
         padding: '0 8px',
         borderRadius: '20px',
         border: '0.5px solid rgba(255, 255, 255, 0.6)',
-        backgroundColor: 'rgba(255, 255, 255, 0.4)',
-        backdropFilter: 'blur(40px) saturate(180%)',
-        WebkitBackdropFilter: 'blur(40px) saturate(180%)',
-        boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08), inset 0 0.5px 1px rgba(255, 255, 255, 0.8)',
+        backgroundColor: transparent ? 'transparent' : 'rgba(255, 255, 255, 0.4)',
+        backdropFilter: transparent ? 'none' : 'blur(40px) saturate(180%)',
+        WebkitBackdropFilter: transparent ? 'none' : 'blur(40px) saturate(180%)',
+        boxShadow: transparent ? 'none' : '0 4px 16px rgba(0, 0, 0, 0.08), inset 0 0.5px 1px rgba(255, 255, 255, 0.8)',
         color: '#272320',
         height,
         minHeight: height,
@@ -33,12 +34,18 @@ export default function OutlinedButton({ icon, text, onClick, size =40 }: Outlin
       }}
       onClick={onClick}
       onMouseEnter={(event) => {
-        event.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.6)';
-        // event.currentTarget.style.transform = 'scale(1.02)';
+        if (!transparent) {
+          event.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.6)';
+        } else {
+           event.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+        }
       }}
       onMouseLeave={(event) => {
-        event.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.4)';
-        // event.currentTarget.style.transform = 'scale(1)';
+        if (!transparent) {
+          event.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.4)';
+        } else {
+           event.currentTarget.style.backgroundColor = 'transparent';
+        }
       }}
     >
       {icon && (

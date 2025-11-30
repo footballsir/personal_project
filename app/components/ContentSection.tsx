@@ -13,6 +13,7 @@ interface ContentSectionProps {
   paragraphs: string | Paragraph[]; // Support both simple string and array of paragraphs
   alignment?: 'left' | 'center';
   maxWidth?: string;
+  titleColor?: string;
 }
 
 /**
@@ -23,7 +24,8 @@ export default function ContentSection({
   title, 
   paragraphs, 
   alignment = 'center',
-  maxWidth = '720px' 
+  maxWidth = '720px',
+  titleColor = '#33607D'
 }: ContentSectionProps) {
   // Convert string to array format for consistent handling
   const paragraphArray = typeof paragraphs === 'string' 
@@ -92,7 +94,7 @@ export default function ContentSection({
           fontSize: '36px',
           lineHeight: '1.33em',
           letterSpacing: '-0.02em',
-          color: '#33607D',
+          color: titleColor,
           margin: 0,
           textAlign: alignment,
           maxWidth: '720px',

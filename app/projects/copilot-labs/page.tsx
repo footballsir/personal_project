@@ -2,20 +2,47 @@
 
 import { Suspense } from 'react';
 import Image from 'next/image';
+import Button from '@/app/components/Button';
 import VideoPlaceholder from '@/app/components/VideoPlaceholder';
 import ContentSection from '@/app/components/ContentSection';
 import ProjectHeader from '@/app/components/ProjectHeader';
 import TopNavigation from '@/app/components/TopNavigation';
 import Footer from '@/app/components/Footer';
 import Loading from '@/app/components/Loading';
+import { useLanguage } from '@/app/i18n/LanguageContext';
 
 function CopilotLabsContent() {
+  const { t } = useLanguage();
+
   return (
   <main className="relative min-h-screen overflow-x-hidden">
       <div className="relative max-w-[1200px] mx-auto px-8">
         <ProjectHeader
-          title="Copilot Labs — AI Design Experiments"
-          description="Copilot Labs is the experimental playground of Copilot — a space to prototype and test the newest AI-driven ideas before they reach millions of users. As the design lead for the 3D Modeling project, I pioneered a new way for designers and engineers to design directly within the codebase, enabling real-time creation and iteration rather than reviewing static mockups. This approach turned design from a spec-driven process into a hands-on, collaborative experience, allowing teams to build, test, and feel the product as they design it."
+          title={t.copilotLabsPage.header.title}
+          description={t.copilotLabsPage.header.description}
+          titleColor="#311F10"
+          showSticker={false}
+        />
+
+        {/* Try Copilot 3D Button */}
+        <div className="flex justify-center" style={{ marginTop: '-80px', marginBottom: '80px', position: 'relative', zIndex: 30 }}>
+          <Button 
+            text="Try Copilot 3D" 
+            onClick={() => window.open('https://copilot.microsoft.com/labs/experiments/3d-generations', '_blank')}
+          />
+        </div>
+
+        {/* Hero Video */}
+        <VideoPlaceholder
+          videoSrc="/videos/copilot3d-hero.mp4"
+          maxWidth="1680px"
+          borderRadius="40px"
+          backgroundColor="transparent"
+          aspectRatio="16/9"
+          autoPlay
+          loop
+          muted
+          controls={false}
         />
 
         {/* Section 1: I code to prototype on Copilot labs */}
@@ -25,10 +52,10 @@ function CopilotLabsContent() {
         >
           <div style={{ marginBottom: '80px' }}>
             <ContentSection
-              title="I code to prototype on Copilot"
+              title={t.copilotLabsPage.codeToPrototype.title}
               paragraphs={[
                 {
-                  text: "To bring this vision to life, I went beyond traditional design deliverables — I checked code directly into the Copilot Labs codebase, embedding design into the real product environment. This allowed the team to interact with live prototypes, experience 3D behaviors firsthand, and iterate instantly based on real usage rather than static visuals. It bridged the gap between design and engineering, letting everyone feel the design in action."
+                  text: t.copilotLabsPage.codeToPrototype.p1
                 }
               ]}
             />
@@ -52,29 +79,17 @@ function CopilotLabsContent() {
           style={{ marginTop: '240px', marginBottom: '80px' }}
         >
           <ContentSection
-            title="3D coding demo on real product"
+            title={t.copilotLabsPage.codingDemo.title}
             paragraphs={[
               {
-                text: "After checking in my code to the Copilot Labs codebase, I deployed it to our internal environment so the team could access the live prototype directly via an internal URL. This allowed designers, PMs, and engineers to experience the 3D model interaction firsthand — no setup required — and provide feedback based on real use."
+                text: t.copilotLabsPage.codingDemo.p1
               }
             ]}
           />
         </section>
 
         {/* Video - 3D vibe coding demo */}
-        <div style={{ marginTop: '80px' }}>
-          <VideoPlaceholder
-            videoSrc="/videos/copilotlab-vibe.mp4"
-            maxWidth="1200px"
-            borderRadius="8px"
-            backgroundColor="transparent"
-            aspectRatio="16/10"
-            autoPlay
-            loop
-            muted
-            controls
-          />
-        </div>
+        <VideoPlaceholder videoSrc="/videos/copilot3d-vibe.mp4" />
 
         <Footer />
       </div>
@@ -86,7 +101,15 @@ export default function CopilotLabsPage() {
   return (
     <Suspense fallback={<Loading />}>
       {/* Fixed background layer */}
-      <div className="fixed inset-0 w-full h-screen bg-gradient-hero -z-10" />
+      <div className="fixed inset-0 w-full h-screen -z-10">
+        <Image
+          src="/images/copilot3d-background.png"
+          alt=""
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
       <TopNavigation title="Copilot Labs" />
       <CopilotLabsContent />
     </Suspense>

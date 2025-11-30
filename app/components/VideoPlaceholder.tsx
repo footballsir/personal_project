@@ -16,6 +16,7 @@ interface VideoPlaceholderProps {
   muted?: boolean;
   controls?: boolean;
   playsInline?: boolean;
+  poster?: string;
   style?: React.CSSProperties;
   className?: string;
 }
@@ -40,6 +41,7 @@ export default function VideoPlaceholder({
   muted = true,
   controls = false,
   playsInline = true,
+  poster,
   style,
   className
 }: VideoPlaceholderProps) {
@@ -54,8 +56,8 @@ export default function VideoPlaceholder({
     marginLeft: '-50vw',
     backgroundColor,
     padding,
-    paddingLeft: padding || '60px',
-    paddingRight: padding || '60px',
+    paddingLeft: padding || '80px',
+    paddingRight: padding || '80px',
     boxSizing: 'border-box'
   };
 
@@ -87,7 +89,7 @@ export default function VideoPlaceholder({
           {stickers.map((sticker, index) => (
             <div
               key={index}
-              className="transition-transform duration-300 [transform:rotate(var(--sticker-rotation))] hover:[transform:rotate(var(--sticker-rotation))_scale(1.2)]"
+              className="transition-transform duration-300 [transform:rotate(var(--sticker-rotation))]"
               style={{
                 position: 'absolute',
                 width: '192px',
@@ -117,6 +119,7 @@ export default function VideoPlaceholder({
               muted={muted}
               controls={controls}
               playsInline={playsInline}
+              poster={poster}
               style={{
                 width: '100%',
                 height: '100%',
@@ -151,7 +154,7 @@ export default function VideoPlaceholder({
         {stickers.map((sticker, index) => (
           <div
             key={index}
-            className="transition-transform duration-300 [transform:rotate(var(--sticker-rotation))] hover:[transform:rotate(var(--sticker-rotation))_scale(1.2)]"
+            className="transition-transform duration-300 [transform:rotate(var(--sticker-rotation))]"
             style={{
               position: 'absolute',
               width: '192px',
